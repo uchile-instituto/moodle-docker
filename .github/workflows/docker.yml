@@ -10,6 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Pull submodules
+      run: git submodule update --init --recursive
+
     - name: Build the Docker image
       run: docker build . --tag ghcr.io/uchile-instituto/moodle-instituto:${GITHUB_SHA}
 
