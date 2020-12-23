@@ -14,11 +14,15 @@ jobs:
       run: git submodule update --init --recursive
 
     - name: Build the Docker image
-      run: docker build . --tag ghcr.io/uchile-instituto/moodle-docker:${GITHUB_SHA}
+      run: docker build . --target base --tag ghcr.io/uchile-instituto/moodle-docker:${GITHUB_SHA}
+
+    - name: Build static image
+      run: docker build . --target nginx --tag ghcr.io/uchile-instituto/moodle-docker:nginx-${GITHUB_SHA}
 
     - name: Push to Github Container Registry
       run: |
           echo "${CR_PAT}" | docker login ghcr.io -u inbotcl --password-stdin
           docker push ghcr.io/uchile-instituto/moodle-docker:${GITHUB_SHA}
+          docker push ghcr.io/uchile-instituto/moodle-docker:nginx-${GITHUB_SHA}
       env:
         CR_PAT: ${{ secrets.CR_PAT }}

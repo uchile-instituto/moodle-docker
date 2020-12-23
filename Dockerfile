@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:7.4-fpm as base
 
 ADD php-extensions.sh /root/php-extensions.sh
 ADD moodle-extension.php /root/moodle-extension.php
@@ -22,6 +22,11 @@ RUN /root/moodle-extension.php https://moodle.org/plugins/download.php/22788/gra
   && /root/moodle-extension.php https://moodle.org/plugins/download.php/22787/mod_checklist_moodle310_2020110700.zip /var/www/html/mod/ \
   && /root/moodle-extension.php https://moodle.org/plugins/download.php/21827/filter_poodll_moodle310_2020062400.zip /var/www/html/filter/ \
   && /root/moodle-extension.php https://moodle.org/plugins/download.php/22837/assignfeedback_poodll_moodle310_2020111200.zip /var/www/html/mod/assign/feedback/ \
-  && /root/moodle-extension.php https://moodle.org/plugins/download.php/22807/local_feedbackviewer_moodle310_2020100701.zip /var/www/html/local/ \
+  && /root/moodle-extension.php https://moodle.org/plugins/download.php/22807/local_feedbackviewer_moodle310_2020100701.zip /var/www/html/local/
 
 VOLUME /var/www/moodledata
+
+FROM nginx:1.19.3 as nginx
+
+COPY --from=base /var/www/html /var/www/html
+COPY static.conf /etc/nginx/conf.d/default.conf
