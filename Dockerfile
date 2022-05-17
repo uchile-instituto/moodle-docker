@@ -22,7 +22,8 @@ RUN /root/moodle-extension.php https://moodle.org/plugins/download.php/22788/gra
   && /root/moodle-extension.php https://moodle.org/plugins/download.php/22787/mod_checklist_moodle310_2020110700.zip /var/www/html/mod/ \
   && /root/moodle-extension.php https://moodle.org/plugins/download.php/21827/filter_poodll_moodle310_2020062400.zip /var/www/html/filter/ \
   && /root/moodle-extension.php https://moodle.org/plugins/download.php/22837/assignfeedback_poodll_moodle310_2020111200.zip /var/www/html/mod/assign/feedback/ \
-  && /root/moodle-extension.php https://moodle.org/plugins/download.php/22807/local_feedbackviewer_moodle310_2020100701.zip /var/www/html/local/
+  && /root/moodle-extension.php https://moodle.org/plugins/download.php/22807/local_feedbackviewer_moodle310_2020100701.zip /var/www/html/local/ \
+  && /root/moodle-extension.php https://moodle.org/plugins/download.php/26640/report_coursesize_moodle40_2021030808.zip /var/www/html/report
 
 VOLUME /var/www/moodledata
 
