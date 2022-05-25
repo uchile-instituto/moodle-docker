@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - name: Pull submodules
       run: git submodule update --init --recursive
@@ -24,7 +24,7 @@ jobs:
       with:
         registry: ghcr.io
         username: inbotcl
-        password: ${{ secrets.CR_PAT_2 }}
+        password: ${{ secrets.CR_PAT }}
 
     - name: Push to Github Container Registry
       run: |
