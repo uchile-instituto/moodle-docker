@@ -19,10 +19,14 @@ jobs:
     - name: Build static image
       run: docker build . --target nginx --tag ghcr.io/uchile-instituto/moodle-docker:nginx-${GITHUB_SHA}
 
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: inbotcl
+        password: ${{ secrets.CR_PAT }}
+
     - name: Push to Github Container Registry
       run: |
-          echo "${CR_PAT}" | docker login ghcr.io -u inbotcl --password-stdin
           docker push ghcr.io/uchile-instituto/moodle-docker:${GITHUB_SHA}
           docker push ghcr.io/uchile-instituto/moodle-docker:nginx-${GITHUB_SHA}
-      env:
-        CR_PAT: ${{ secrets.CR_PAT }}
