@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - name: Pull submodules
       run: git submodule update --init --recursive
@@ -20,7 +20,7 @@ jobs:
       run: docker build . --target nginx --tag ghcr.io/uchile-instituto/moodle-docker:nginx-${GITHUB_SHA}
 
     - name: Login to GitHub Container Registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2
       with:
         registry: ghcr.io
         username: inbotcl
