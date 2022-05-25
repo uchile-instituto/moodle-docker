@@ -24,7 +24,7 @@ jobs:
       with:
         registry: ghcr.io
         username: inbotcl
-        password: ${{ secrets.CR_PAT }}
+        password: ${{ secrets.CR_PAT_2 }}
 
     - name: Push to Github Container Registry
       run: |
