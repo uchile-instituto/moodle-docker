@@ -37,7 +37,7 @@ apt-get install -y --no-install-recommends apt-transport-https \
 # Generate the locales configuration fo rboth Australia, and the US.
 echo 'Generating locales..'
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
-echo 'en_ES.UTF-8 UTF-8' >> /etc/locale.gen
+echo 'es_ES.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 
 echo "Installing php extensions"

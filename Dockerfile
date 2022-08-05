@@ -1,4 +1,4 @@
-FROM php:7.4-fpm as base
+FROM php:7.4-fpm-buster as base
 
 ADD php-extensions.sh /root/php-extensions.sh
 ADD moodle-extension.php /root/moodle-extension.php
