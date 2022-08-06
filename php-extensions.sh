@@ -6,7 +6,7 @@ echo "Installing apt dependencies"
 
 # Build packages will be added during the build, but will be removed at the end.
 BUILD_PACKAGES="gettext gnupg libcurl4-openssl-dev libfreetype6-dev libicu-dev libjpeg62-turbo-dev \
-  libldap2-dev libmariadbclient-dev libmemcached-dev libpng-dev libpq-dev libxml2-dev libxslt-dev \
+  libldap2-dev libmariadb-dev libmemcached-dev libpng-dev libpq-dev libxml2-dev libxslt-dev \
   unixodbc-dev uuid-dev"
 
 # Packages for Postgres.
@@ -37,7 +37,7 @@ apt-get install -y --no-install-recommends apt-transport-https \
 # Generate the locales configuration fo rboth Australia, and the US.
 echo 'Generating locales..'
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
-echo 'en_ES.UTF-8 UTF-8' >> /etc/locale.gen
+echo 'es_ES.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 
 echo "Installing php extensions"
